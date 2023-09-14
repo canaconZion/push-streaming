@@ -1,7 +1,6 @@
-# push-streaming
-![Github stars](https://img.shields.io/github/stars/canaconZion/push-streaming.svg) 
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/canaconZion/push-streaming)
-
+# Push-Streaming
+![Github stars](https://img.shields.io/github/stars/canaconZion/videoPlayer.svg) [![](https://img.shields.io/badge/feature-audiodevode-blue)](https://github.com/canaconZion/videoPlayer/tree/feature/audiodecode) 
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/canaconZion/videoPlayer)
 将视频文件推送为rtmp流
 
 ## Usage
