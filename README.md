@@ -7,7 +7,7 @@
 ## Usage
 ```bash
 sudo apt update && apt install ffmpeg &&
-git clone  &&
+git clone https://github.com/canaconZion/push-streaming.git &&
 make && ./rtmpPush
 ```
 ## Config
