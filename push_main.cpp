@@ -24,7 +24,7 @@ int main(int argc, int* argv[])
     ret = config.ReadConfig("config.ini");
     if(ret == false)
     {
-        printf("Failed to read config config.ini");
+        printf("Failed to read config config.ini\n");
         return 1;
     }
     Filepath = config.ReadString("PUSHSTREAMING", "Filepath", "");
