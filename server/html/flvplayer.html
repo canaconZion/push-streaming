@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Hello little turtles</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="./js/flv.min.js"></script>
+</head>
+
+<body class="is-preload">
+
+    <!-- Header -->
+    <header id="header">
+        <h1>Hello little turtles!</h1>
+        <p>欢迎来到乌龟生活频道</p>
+    </header>
+
+    <!-- Signup Form -->
+    <form id="signup-form" method="post" action="#">
+        <!-- <input type="email" name="email" id="email" placeholder="Email Address" /> -->
+        <!-- <input type="submit" value="Sign Up" /> -->
+        <button id="btn-play">播放</button>
+        <!-- <button id="btn-play2">播放2</button> -->
+        <div>
+            <video id="video-player" width="100%" height="auto" controls autoplay>
+				<!-- <source src="http://xxx.xxx.xxx.xxx:8080/live/home.flv" type="video/flv"> -->
+			</video>
+        </div>
+        <div>
+            <video id="video-player2" width="100%" height="auto" controls autoplay>
+				<!-- <source src="http://xxx.xxx.xxx.xxx:8080/live/home.flv" type="video/flv"> -->
+			</video>
+        </div>
+
+    </form>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        var videoPlayer = document.getElementById('video-player');
+        var videoPlayer2 = document.getElementById('video-player2');
+        // var inputUrl = document.getElementById('input-url');
+        var btnPlay = document.getElementById('btn-play');
+
+        var flvPlayer = null;
+        var flvPlayer2 = null;
+
+        btnPlay.onclick = function() {
+            if (!flvjs.isSupported()) {
+                alert('您的浏览器不支持flv.js，请更换现代浏览器。');
+                return;
+            }
+
+            if (flvPlayer !== null) {
+                flvPlayer.unload();
+                flvPlayer.detachMediaElement();
+                flvPlayer.destroy();
+                flvPlayer = null;
+            }
+            var url = "http://xxx.xxx.xxx.xxx:8081/live/homemain.flv";
+
+            flvPlayer = flvjs.createPlayer({
+                type: 'flv',
+                url: url
+            });
+
+            flvPlayer.attachMediaElement(videoPlayer);
+            flvPlayer.load();
+            flvPlayer.play();
+
+            if (!flvjs.isSupported()) {
+                alert('您的浏览器不支持flv.js，请更换现代浏览器。');
+                return;
+            }
+
+            if (flvPlayer2 !== null) {
+                flvPlayer2.unload();
+                flvPlayer2.detachMediaElement();
+                flvPlayer2.destroy();
+                flvPlayer2 = null;
+            }
+            var url2 = "http://xxx.xxx.xxx.xxx:8081/live/home.flv";
+
+            flvPlayer2 = flvjs.createPlayer({
+                type: 'flv',
+                url: url2
+            });
+
+            flvPlayer2.attachMediaElement(videoPlayer2);
+            flvPlayer2.load();
+            flvPlayer2.play();
+        }
+    </script>
+
+</body>
+
+</html>

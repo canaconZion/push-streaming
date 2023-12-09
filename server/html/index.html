@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Hello little turtles</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="./js/flv.min.js"></script>
+</head>
+
+<body class="is-preload">
+
+    <!-- Header -->
+    <header id="header">
+        <h1>Hello little turtles!</h1>
+        <p>欢迎来到乌龟生活频道，这里将为您呈现最生动活泼的乌龟世界！<br/>无论是他们的悠闲散步，还是一战高下的壮丽时刻，我们都会为您捕捉下来。<br/> 跟随我们，您将亲历乌龟们在水中畅游、阳光下晒龟壳，还能看到他们和小伙伴玩耍的欢乐场面。
+            </br>
+            不要错过每一刻，乌龟们总是在用它们憨态可掬的方式，传递着生活的快乐。让我们一起分享这个充满活力的乌龟生活吧！</p>
+    </header>
+
+    <!-- Signup Form -->
+    <form id="signup-form" method="post" action="#">
+        <!-- <input type="email" name="email" id="email" placeholder="Email Address" /> -->
+        <!-- <input type="submit" value="Sign Up" /> -->
+        <button id="btn-play">播放</button>
+        <div>
+            <video id="video-player" width="100%" height="auto" controls autoplay>
+				<!-- <source src="http://xxx.xxx.xxx.xxx:8080/live/turtles.flv" type="video/flv"> -->
+			</video>
+        </div>
+
+    </form>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        var videoPlayer = document.getElementById('video-player');
+        var inputUrl = document.getElementById('input-url');
+        var btnPlay = document.getElementById('btn-play');
+
+        var flvPlayer = null;
+
+        btnPlay.onclick = function() {
+            if (!flvjs.isSupported()) {
+                alert('您的浏览器不支持flv.js，请更换现代浏览器。');
+                return;
+            }
+
+            if (flvPlayer !== null) {
+                flvPlayer.unload();
+                flvPlayer.detachMediaElement();
+                flvPlayer.destroy();
+                flvPlayer = null;
+            }
+
+            var url = "http://localhost:8080/live/screen.flv";
+
+            flvPlayer = flvjs.createPlayer({
+                type: 'flv',
+                url: url
+            });
+
+            flvPlayer.attachMediaElement(videoPlayer);
+            flvPlayer.load();
+            flvPlayer.play();
+        }
+    </script>
+
+</body>
+
+</html>

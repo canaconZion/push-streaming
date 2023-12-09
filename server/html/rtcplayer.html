@@ -1,0 +1,7 @@
+<video class="" controls autoplay style="" id="video">
+<script src="./js/jswebrtc.min.js"></script>
+<script>
+var video = document.getElementById('video');
+var url = 'webrtc://192.168.2.123/live/screen';
+var player = new JSWebrtc.Player(url, { video: video, autoplay: true,  });
+</script>
